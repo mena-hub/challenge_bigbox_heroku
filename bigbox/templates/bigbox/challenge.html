@@ -1,0 +1,37 @@
+{% extends "bigbox/base.html" %}
+{% block title %}Desafío{% endblock %}
+
+{% block content %}
+<section class="section border-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto pb-5">
+                <div class="text-dark0">
+                    <h2 class="py-3">Qué es Bigbox.</h2>
+                    <p>Bigbox es una forma diferente de regalar.</p>
+                    <p>Contamos con seis categorías temáticas: <strong>Gastronomía, Estar Bien, Estadías, Entretenimiento, Aventura y Mix.</strong></p>
+                    <p>Cada Bigbox incluye una selección de experiencias. El agasajado elige la que más le gusta y reserva directamente con el lugar.</p>
+                    <h2 class="py-3">Manifesto.</h2>
+                    <p>Regalamos porque ver felices a los nuestros nos hace muy felices. Así de simple.</p>
+                    <p>Porque siempre buscamos esa sonrisa, esa emoción, ese abrazo que lo dice todo. No importa el motivo, no importa la ocasión, solo importa hacer feliz a alguien.</p>
+                    <p>Ese es nuestro propósito, nuestra razón de ser. Porque un mundo más generoso, es un mundo más feliz.</p>
+                    <p>¿Y por qué experiencias? Porque los momentos de felicidad son los que recordaremos por siempre.</p>
+                    <h2 class="py-3">Bigbox. La felicidad de regalar.</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="section border-bottom">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="d-flex align-items-center">
+                    <h4 class="text-uppercase h4">Boxes</h4>
+                    <h5 class="ml-auto"><a href="{% url 'bigbox:boxes' %}">Ver todo</a></h5>
+                </div> 
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
