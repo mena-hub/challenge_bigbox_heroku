@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <!-- Librerías -->
+    {% load bootstrap4 %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %} | Bigbox</title>
+    <!-- Fuentes -->
+    <link href="{% static 'favicon.ico' %}" rel="shortcut icon" type="image/png">
+    <link href='https://fonts.googleapis.com/css?family=Poppins:300,400,700' rel="stylesheet">
+    <!-- Estilo -->
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'bigbox/css/frontend.css' %}">
+</head>
+<body>
+    <header class="text-dark py-5 border-bottom">
+        <div class="container h-100 text-center">
+            <div class="row h-100">
+                <div class="col-12">
+                    <h1 class="display-4">bigbox</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="border-bottom">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-12">
+                    <ul class="h4 list-inline">
+                        <li class="list-inline-item">Regalos</li>
+                        <li class="list-inline-item">Escapadas</li>
+                        <li class="list-inline-item">Venta</li>
+                    </ul> 
+                </div>
+            </div>
+        </div>
+    </section> 
+    {% block content %} {% endblock %}
+    <footer class="py-5 bg-white">
+        <div class="container h-100">
+            <div class="row text-nowrap justify-content-between align-items-center">
+                <div class="col-4">
+                    <small><a href="{% url 'home' %}">Bigbox 2021</a></small>
+                </div>
+                <div class="justify-content-md-center">
+                    <h1 class="text-dark">ϟ.</h1>
+                </div>
+                <div class="col-4 d-flex justify-content-end align-items-center">
+                    &copy; <small>Natalia E. M.</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Javascript -->
+    {% bootstrap_javascript jquery='full' %}
+</body>
+</html>
