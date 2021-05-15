@@ -1,0 +1,65 @@
+{% extends "bigbox/base.html" %}
+{% block title %}Experiencias{% endblock %}
+
+{% block content %}
+<section class="section pagination border-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto pb-5">
+                <div class="text-dark">
+                    <h2 class="py-3">Comprar Bigbox</h2>
+                    <p>Ver felices a los nuestros nos hace muy felices.</p>
+                    <h4 class="text-uppercase py-3">Elige tu propia aventura</h4>
+                    <ul class="list-group">
+                        {% for data in box_data %}
+                            {% for activity in activities %}
+                                <li class="list-group-item pl-4">
+                                    <a href="{% url 'bigbox:activity_detail' data.id activity.id %}">{{ activity.name }}</a>
+                                </li>
+                            {% endfor %}
+                        {% endfor %}
+                    </ul>
+                    <nav class="pt-4" aria-label="Navigation">
+                        <ul class="pagination justify-content-center">
+                            {% if activities.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ activities.previous_page_number }}">Anterior</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                                </li>
+                            {% endif %}
+                            {% if activities.number|add:'-2' > 1 %}
+                                <li class="page-item"><a class="page-link" href="?page={{ activities.number|add:'-3' }}">&hellip;</a></li>
+                            {% endif %}
+                            {% for index in activities.paginator.page_range %}
+                                {% if activities.number == index %}
+                                    <li class="page-item active" aria-current="page">
+                                        <span class="page-link">{{ index }} <span class="sr-only">(current)</span></span>
+                                    </li>
+                                {% elif index > activities.number|add:'-3' and index < activities.number|add:'3' %}
+                                    <li class="page-item"><a class="page-link" href="?page={{ index }}">{{ index }}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                            {% if activities.paginator.num_pages > activities.number|add:'2' %}
+                                <li class="page-item"><a class="page-link" href="?page={{ activities.number|add:'3' }}">&hellip;</a></li>
+                            {% endif %}
+                            {% if activities.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="?page={{ activities.next_page_number }}">Siguiente</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Siguiente</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                    <p>Posibles finales.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
