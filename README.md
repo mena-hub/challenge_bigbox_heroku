@@ -37,8 +37,9 @@ Configuration and Config Vars
 
 Por ejemplo
 
+```zsh
 » heroku config:set DJANGO_SETTINGS_MODULE=settings.heroku
-
+```
 </details>
 
 Postgres
@@ -82,7 +83,7 @@ create <OPTIONAL_NAME>::DATABASE=> select * from tablename
 
 Esto es un resumen, artículos específicos complementarios:
 
-- Django Apps for Heroku, 
+- Django Apps for Heroku
 - Getting Started on Heroku with Python
 - Deploying with Git
 
